@@ -50,8 +50,8 @@
     },
     "devDependencies": {
         "concurrently": "^6.2.0",
-        "nw": "0.54.0-sdk",
-        "nwjs-builder-phoenix": "^1.15.0",
+        "nw": "0.55.0-sdk",
+        "nw-builder": "^3.5.7",
         "rimraf": "^3.0.2",
         "wait-on": "^5.3.0"
     },
@@ -59,7 +59,7 @@
         "debug": "gs-app-server --debug",
         "server": "gs-app-server",
         "start": "concurrently -k \"npm run debug\" \"wait-on http://localhost:8080/kiri/ && nw .\"",
-        "build": "npm run build:clean && npm run build:nw",
+        "build": "npm run build:clean && node build.js",
         "build:clean": "rimraf ./dist",
         "build:nw": "build --concurrent --tasks win-x64,linux-x86,linux-x64,mac-x64 --mirror https://dl.nwjs.io/ .",
         "build:win": "npm run build:win:clean && build --tasks win-x64 --mirror https://dl.nwjs.io/ .",
